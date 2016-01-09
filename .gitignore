@@ -1,0 +1,12 @@
+logs/*
+!.gitkeep
+node_modules/
+bower_components/
+tmp
+.DS_Store
+.idea
+coverage/
+psd/
+app/images/sugar.psd
+my-app/
+cmd.exe

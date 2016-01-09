@@ -1,0 +1,43 @@
+<!-- Industry.html -->
+<div ng-if="base.initialized">
+<div class="text-center draw-number"> 
+    <div class="row" style="padding-top:0">
+        <span class="col-md-3"></span>
+        <span class="col-md-1 col-xs-4">{{base.pick1}} </span>
+        <span class="col-md-1 col-xs-4">{{base.pick2}} </span>
+        <span class="col-md-1 col-xs-4">{{base.pick3}} </span>
+        <span class="col-md-1 col-xs-4">{{base.pick4}} </span>
+        <span class="col-md-1 col-xs-4">{{base.pick5}} </span>
+        <span class="col-md-1 col-xs-4">{{base.pick6}} </span>
+    </div>
+    <div class="row">
+        <span class="col-md-3"></span>
+        <span ng-repeat="n in base.draw track by $index" class="col-md-1 col-xs-4">{{n}} </span>
+    </div>
+</div>
+<div>
+    <p>Cash: {{base.industry.getCount() | number: 0}}</p>
+    <p>Cash Spent: {{base.tries | number: 0}}</p>
+    <p>Return on dollar: {{base.industry.getCount() / base.tries | number: 2}}</p>
+</div>
+</div>
+
+<div ng-if="!base.initialized">
+    <div  class="page-header" style="margin-top: -15px;"> 
+        <h1 >Pick your numbers </h1>
+        Choose only whole numbers. Hit start to move on.
+    </div>
+    <form name="form" class="form-inline init" >
+        <input type="number" class="form-control"  ng-model="base.pick1" placeholder="1-69" min="1" max="69" ng-required="required">
+        <input type="number" class="form-control"  ng-model="base.pick2" placeholder="1-69" min="1" max="69" ng-required="required">
+        <input type="number" class="form-control"  ng-model="base.pick3" placeholder="1-69" min="1" max="69" ng-required="required">
+        <input type="number" class="form-control"  ng-model="base.pick4" placeholder="1-69" min="1" max="69" ng-required="required">
+        <input type="number" class="form-control"  ng-model="base.pick5" placeholder="1-69" min="1" max="69" ng-required="required">
+        <input type="number" class="form-control"  ng-model="base.pick6" placeholder="1-26" min="1" max="26" ng-required="required">
+        <button class="btn btn-default" ng-click="base.verify()"> Start </button> 
+    </form>
+</div>
+
+<div class="floor">
+    Sync Number: {{base.syncNumber}}
+</div>
