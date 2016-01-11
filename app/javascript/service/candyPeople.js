@@ -32,7 +32,7 @@
 			self.tries = 0;
 			self.initialized = false;
 
-			var syncTime = moment().millisecond(0).seconds(0);
+			var syncTime = moment().millisecond(0).seconds(0).minutes(0).hours(0);
 			self.engine.seed(syncTime.valueOf());
 			self.syncNumber = self.random.integer(1,1000);
 
@@ -134,7 +134,7 @@
 				  if(!found)
 				  	self.draw.push(randomnumber);
 				}
-				
+
 				self.draw[5] = self.random.integer(1,35)
 				var match = 0;
 
