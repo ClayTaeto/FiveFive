@@ -126,7 +126,7 @@
 	 			self.draw = []
 
 				while(self.draw.length < 5){
-				  var randomnumber=self.random.integer(1,35);
+				  var randomnumber=self.random.integer(1, 69);
 				  var found=false;
 				  for(var i=0;i<self.draw.length;i++){
 					if(self.draw[i]==randomnumber){found=true;break}
