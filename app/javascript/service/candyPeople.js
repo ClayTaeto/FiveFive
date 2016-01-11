@@ -139,9 +139,7 @@
 				self.million = Number(window.localStorage.getItem('million'));
 				self.jackpot = Number(window.localStorage.getItem('jackpot'));
 				var state = Number(window.localStorage.getItem(self.imgName + '-' + id));
-				if (self.pick1 && self.pick1 > 0) {
-					self.initialized = true
-				}
+				self.verify();
 			};
 
 			self.produce = function() {
