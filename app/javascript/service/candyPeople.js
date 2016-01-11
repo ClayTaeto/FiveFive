@@ -14,6 +14,7 @@
 			expect(id).to.be.ok;
 
 			var population = 0;
+			var run = true;
 			var self = {};
 			self.id = id || 0;
 			self.imgName = imgName || 'missingno';
@@ -28,6 +29,16 @@
 			self.pick4 = 5;
 			self.pick5 = 8;
 			self.pick6 = 13;
+
+			self.four1 = 0
+			self.four2 = 0
+			self.seven1 = 0
+			self.seven2 = 0
+			self.hundred1 = 0
+			self.hundred2 = 0
+			self.fifty = 0
+			self.million = 0
+			self.jackpot = 0
 
 			self.tries = 0;
 			self.initialized = false;
@@ -95,6 +106,17 @@
 				window.localStorage.setItem('number4', self.pick4);
 				window.localStorage.setItem('number5', self.pick5);
 				window.localStorage.setItem('number6', self.pick6);
+
+
+				window.localStorage.setItem('four1', self.four1);
+				window.localStorage.setItem('four2', self.four2);
+				window.localStorage.setItem('seven1', self.seven1);
+				window.localStorage.setItem('seven2', self.seven2);
+				window.localStorage.setItem('hundred1', self.hundred1);
+				window.localStorage.setItem('hundred2', self.hundred2);
+				window.localStorage.setItem('fifty', self.fifty);
+				window.localStorage.setItem('million', self.million);
+				window.localStorage.setItem('jackpot', self.jackpot);
 			};
 
 			self.loadState = function() {
@@ -107,6 +129,15 @@
 				self.pick5 = Number(window.localStorage.getItem('number5'));
 				self.pick6 = Number(window.localStorage.getItem('number6'));
 
+				self.four1 = Number(window.localStorage.getItem('four1'));
+				self.four2 = Number(window.localStorage.getItem('four2'));
+				self.seven1 = Number(window.localStorage.getItem('seven1'));
+				self.seven2 = Number(window.localStorage.getItem('seven2'));
+				self.hundred1 = Number(window.localStorage.getItem('hundred1'));
+				self.hundred2 = Number(window.localStorage.getItem('hundred2'));
+				self.fifty = Number(window.localStorage.getItem('fifty'));
+				self.million = Number(window.localStorage.getItem('million'));
+				self.jackpot = Number(window.localStorage.getItem('jackpot'));
 				var state = Number(window.localStorage.getItem(self.imgName + '-' + id));
 				if (self.pick1 && self.pick1 > 0) {
 					self.initialized = true
@@ -120,7 +151,11 @@
 				if(!self.initialized)
 					return;
 
+				if(!run)
+					return;
+
 				self.tries += 1;
+				window.localStorage.setItem(self.imgName + '-' + "tries", self.tries);
 				self.time.add(100, "ms");
 				self.engine.seed(self.time.valueOf());
 	 			self.draw = []
@@ -165,24 +200,36 @@
 					switch (match) {
 						case 1:
 						    industry.makeItem(4)
+						    self.four1 += 1
+						    window.localStorage.setItem('four1', self.four1);
 						    break;
 					    case 2:
 						    industry.makeItem(4)
+						    self.four2 += 1;
+						    window.localStorage.setItem('four2', self.four2);
 						    break;
 					    case 3:
 						    industry.makeItem(7)
+						    self.seven1 += 1;
+						    window.localStorage.setItem('seven1', self.seven1);
 						    toastr.success("won 7", "");
 						    break;
 						case 4:
 						    industry.makeItem(100)
+						    self.hundred1 += 1;
+						    window.localStorage.setItem('hundred1', self.hundred1);
 						    toastr.warning("won 100", "");
 						    break;
 						case 5:
-						    industry.makeItem(10000)
-						    toastr.warning("won 10,000", "");
+						    industry.makeItem(50000)
+						    self.fifty += 1;
+						    window.localStorage.setItem('fifty', self.fifty);
+						    toastr.warning("won 50,000", "");
 						    break;
 						case 6:
-						    industry.makeItem(5000000)
+						    industry.makeItem(1000000000)
+						    self.jackpot += 1;
+						    window.localStorage.setItem('jackpot', self.jackpot);
 						    toastr.error("won JACKPOT!!", "CALL YOUR MUTHDA");
 						    break;
 						}
@@ -190,21 +237,30 @@
 					switch (match) {
 						case 3:
 						    industry.makeItem(7)
+						    self.seven2 += 1;
+						    window.localStorage.setItem('seven2', self.seven2);
 						    toastr.success("won 7", "");
 						    break;
 						case 4:
 						    industry.makeItem(100)
+						    self.hundred2 += 1;
+						    window.localStorage.setItem('hundred2', self.hundred2);
 						    toastr.warning("won 100", "");
 						    break;
 						case 5:
 						    industry.makeItem(1000000)
 						    toastr.error("won 1,000,000", "");
+						    self.million += 1;
+						    window.localStorage.setItem('million', self.million);
 						    window.localStorage.setItem("win!" + self.time.format(), self.time.valueOf());
 						    break;
 					}
-				}
-					
+				}	
 			};
+
+			self.stop = function(){
+				run = !run;
+			}
 
 			self.verify = function(){
 				if(!self.pick1 || self.base1 < 1 || self.base1 > 59)

@@ -20,6 +20,74 @@
     <p>Cash Spent: {{base.tries | number: 0}}</p>
     <p>Return on dollar: {{base.industry.getCount() / base.tries | number: 2}}</p>
 </div>
+<div class="row"> 
+<div class="col-md-4 col-xs-4">
+    <table class="table table-striped ">
+          <tr>
+            <th>Match</th>
+            <th>Prize</th> 
+            <th>Odds</th>
+            <th>Times Won</th>
+          </tr>
+          <tr>
+            <td><span style="color:red">O</span></td>
+            <td>$4</td> 
+            <td>1 in 38.32</td>
+            <td>{{base.four1}}</td>
+          </tr>
+          <tr>
+            <td>O <span style="color:red">O</span></td>
+            <td>$4</td> 
+            <td>1 in 91.98</td>
+            <td>{{base.four2}}</td>
+          </tr>
+          <tr>
+            <td>O O <span style="color:red">O</span></td>
+            <td>$7</td> 
+            <td>1 in 701.33</td>
+            <td>{{base.seven1}}</td>
+          </tr>
+          <tr>
+            <td>O O O</td>
+            <td>$7</td> 
+            <td>1 in 579.76</td>
+            <td>{{base.seven2}}</td>
+          </tr>
+          <tr>
+            <td>O O O <span style="color:red">O</span></td>
+            <td>$100</td> 
+            <td>1 in 14,494.11</td>
+            <td>{{base.hundred1}}</td>
+          </tr>
+          <tr>
+            <td>O O O O</td>
+            <td>$100</td> 
+            <td>1 in 36,525.17</td>
+            <td>{{base.hundred2}}</td>
+          </tr>
+          <tr>
+            <td>O O O O <span style="color:red">O</span></td>
+            <td>$50,000</td> 
+            <td>1 in 913,129.18</td>
+            <td>{{base.fifty}}</td>
+          </tr>
+          <tr>
+            <td>O O O O O</td>
+            <td>$1,000,000</td> 
+            <td>1 in 11,688,053.52</td>
+            <td>{{base.million}}</td>
+          </tr>
+          <tr>
+            <td>O O O O O <span style="color:red">O</span></td>
+            <td>$1,000,000,000</td> 
+            <td>1 in 292,201,338.00</td>
+            <td>{{base.jackpot}}</td>
+          </tr>
+    </table>
+
+    <button ng-click="base.stop()"> </button>
+</div>
+</div>
 </div>
 
 <div ng-if="!base.initialized">
@@ -36,6 +104,7 @@
         <input type="number" class="form-control"  ng-model="base.pick6" placeholder="1-26" min="1" max="26" ng-required="required">
         <button class="btn btn-default" ng-click="base.verify()"> Start </button> 
     </form>
+
 </div>
 
 <div class="floor">
