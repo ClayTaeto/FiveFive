@@ -194,7 +194,7 @@
 						    break;
 						case 4:
 						    industry.makeItem(100)
-						    toastr.success("won 100", "");
+						    toastr.warning("won 100", "");
 						    break;
 						case 5:
 						    industry.makeItem(1000000)
