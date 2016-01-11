@@ -117,6 +117,9 @@
 				// if (population > 0) {
 				// 	industry.makeItem(population * self.production);
 				// }
+				if(!self.initialized)
+					return;
+				
 				self.tries += 1;
 				self.time.add(100, "ms");
 				self.engine.seed(self.time.valueOf());
