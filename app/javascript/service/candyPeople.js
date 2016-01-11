@@ -265,17 +265,33 @@
 			self.verify = function(){
 				if(!self.pick1 || self.base1 < 1 || self.base1 > 59)
 					return
-				if(self.pick2 < 1 || self.base2 > 59)
+				if(!self.pick2 || self.pick2 < 1 || self.base2 > 59)
 					return
-				if(self.pick3 < 1 || self.base3 > 59)
+				if(!self.pick3 || self.pick3 < 1 || self.base3 > 59)
 					return
-				if(self.pick4 < 1 || self.base4 > 59)
+				if(!self.pick4 || self.pick4 < 1 || self.base4 > 59)
 					return
-				if(self.pick5 < 1 || self.base5 > 59)
+				if(!self.pick5 || self.pick5 < 1 || self.base5 > 59)
 					return
-				if(self.pick6 < 1 || self.base6 > 26)
+				if(!self.pick6 || self.pick6 < 1 || self.base6 > 26)
 					return
 
+				var codes = [self.pick1, self.pick2, self.pick3, self.pick4, self.pick5]
+				var i = codes.length;
+
+				var all = {};
+				var dupes = codes.reduce(function( duplicates, value ) {
+			    if( all[value] ) {
+			      duplicates.push(value);
+			      all[value] = false;
+			    } else if( typeof all[value] == "undefined" ) {
+			      all[value] = true;
+			    }
+			    return duplicates;
+			  }, []);
+
+				if(dupes.length)
+					return;
 				self.initialized = true;
 				self.saveState();
 
