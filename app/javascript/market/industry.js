@@ -5,7 +5,7 @@
 	var industry = function($http, $interval, Achievement) {
 		var comodity = function(name, sell, buy) {
 			var count = 0;
-			var efficiency = 0.1;
+			var efficiency = 1;
 			var self = {};
 		
 			self.name = name;
