@@ -135,7 +135,7 @@
 				  	self.draw.push(randomnumber);
 				}
 
-				self.draw[5] = self.random.integer(1,35)
+				self.draw[5] = self.random.integer(1,26)
 				var match = 0;
 
 
