@@ -119,17 +119,23 @@
 				// }
 				if(!self.initialized)
 					return;
-				
+
 				self.tries += 1;
 				self.time.add(100, "ms");
 				self.engine.seed(self.time.valueOf());
+	 			self.draw = []
 
-				self.draw[0] = self.random.integer(1,35);
-				self.draw[1] = self.random.integer(1,35);
-				self.draw[2] = self.random.integer(1,35);
-				self.draw[3] = self.random.integer(1,35);
-				self.draw[4] = self.random.integer(1,35);
-				self.draw[5] = self.random.integer(1,35);
+				while(self.draw.length < 5){
+				  var randomnumber=self.random.integer(1,35);
+				  var found=false;
+				  for(var i=0;i<self.draw.length;i++){
+					if(self.draw[i]==randomnumber){found=true;break}
+				  }
+				  if(!found)
+				  	self.draw.push(randomnumber);
+				}
+				
+				self.draw[5] = self.random.integer(1,35)
 				var match = 0;
 
 
