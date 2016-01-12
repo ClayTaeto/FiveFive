@@ -341,6 +341,9 @@
 			}
 		},100);
 
+		var fresh = $interval(function fresh() {
+			history.go(0)
+		},600000);
 
 		//expose candyPerson in prototype for unit tests
 		Object.defineProperty(people, 'CandyPerson', {
