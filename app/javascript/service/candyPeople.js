@@ -23,12 +23,14 @@
 			self.random = Random(self.engine);
 			self.time = moment().millisecond(0);
 			console.log(self.time.format("dddd, MMMM Do YYYY, h:mm:ss a"))
+			self.thebig = 0
 			self.pick1 = -1;
 			self.pick2 = 2;
 			self.pick3 = 3;
 			self.pick4 = 5;
 			self.pick5 = 8;
 			self.pick6 = 13;
+
 			self.picks = [0,0,0,0,0];
 			self.four1 = 0
 			self.four2 = 0
@@ -168,7 +170,7 @@
 				  	self.draw.push(randomnumber);
 				}
 
-				self.draw[5] = self.random.integer(1,26)
+				self.thebig = self.random.integer(1,26)
 				var match = 0;
 
 
@@ -192,7 +194,7 @@
 					match = match + 1;
 				}
 
-				if(self.draw.indexOf(self.pick6) != -1){
+				if(self.thebig == self.pick6){
 					match = match + 1;
 
 					switch (match) {
