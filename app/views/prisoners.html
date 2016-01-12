@@ -102,9 +102,9 @@
         The first five must be unique.
     </div>
     <form name="myform" class="form-inline init" >
-        <div ng-repeat="n in base.picks track by $index">
-            <input type="number" class="form-control"  ng-model="base.picks[$index]" duplicate="base.picks" placeholder="1-69" min="1" max="69" ng-required="required">
-        </div>
+
+            <input type="number" ng-repeat="n in base.picks track by $index" class="form-control"  ng-model="base.picks[$index]" duplicate="base.picks" placeholder="1-69" min="1" max="69" ng-required="required">
+
         <input type="number" class="form-control"  ng-model="base.pick5" placeholder="1-26" min="1" max="26" ng-required="required">
         <div ng-show="form.$error.duplicate">You must choose unique numbers for the first 5 numbers</div>
         <button id="verifyPicks" class="btn btn-default" ng-click="verify()"> Start </button> 
