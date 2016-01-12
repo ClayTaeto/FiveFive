@@ -29,7 +29,7 @@
 			self.pick4 = 5;
 			self.pick5 = 8;
 			self.pick6 = 13;
-
+			self.picks = [0,0,0,0,0];
 			self.four1 = 0
 			self.four2 = 0
 			self.seven1 = 0
@@ -295,6 +295,7 @@
 
 				if(dupes.length)
 					return;
+
 				self.initialized = true;
 				self.saveState();
 

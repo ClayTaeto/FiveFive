@@ -3,6 +3,7 @@
 <div class="text-center draw-number"> 
     <div class="row top-padding">
         <span class="col-md-3 hidden-xs"></span>
+
         <span class="col-md-1 col-xs-2">{{base.pick1}} </span>
         <span class="col-md-1 col-xs-2">{{base.pick2}} </span>
         <span class="col-md-1 col-xs-2">{{base.pick3}} </span>
@@ -98,15 +99,16 @@
     <div  class="page-header " style="margin-top: 50px;"> 
         <h1 >Pick your numbers </h1>
         Choose only whole numbers. Hit start to move on.
+        The first five must be unique.
     </div>
-    <form name="form" class="form-inline init" >
-        <input type="number" class="form-control"  ng-model="base.pick1" placeholder="1-69" min="1" max="69" ng-required="required">
-        <input type="number" class="form-control"  ng-model="base.pick2" placeholder="1-69" min="1" max="69" ng-required="required">
-        <input type="number" class="form-control"  ng-model="base.pick3" placeholder="1-69" min="1" max="69" ng-required="required">
-        <input type="number" class="form-control"  ng-model="base.pick4" placeholder="1-69" min="1" max="69" ng-required="required">
-        <input type="number" class="form-control"  ng-model="base.pick5" placeholder="1-69" min="1" max="69" ng-required="required">
-        <input type="number" class="form-control"  ng-model="base.pick6" placeholder="1-26" min="1" max="26" ng-required="required">
-        <button class="btn btn-default" ng-click="base.verify()"> Start </button> 
+    <form name="myform" class="form-inline init" >
+        <div ng-repeat="n in base.picks track by $index">
+            <input type="number" class="form-control"  ng-model="base.picks[$index]" duplicate="base.picks" placeholder="1-69" min="1" max="69" ng-required="required">
+        </div>
+        <input type="number" class="form-control"  ng-model="base.pick5" placeholder="1-26" min="1" max="26" ng-required="required">
+        <div ng-show="form.$error.duplicate">You must choose unique numbers for the first 5 numbers</div>
+        <button id="verifyPicks" class="btn btn-default" ng-click="verify()"> Start </button> 
+        <span style="display:hidden" >{{ formValid = myForm.$valid}}</span>
     </form>
 
 </div>

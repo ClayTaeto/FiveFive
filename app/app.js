@@ -42,6 +42,28 @@ marcApp.run(function() {
     }
 });
 
+marcApp.directive('duplicate', function () {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        scope: {
+          array: '=duplicate'
+        },
+        link: function (scope, elm, attrs, ctrl) {
+            ctrl.$parsers.unshift(function (viewValue) {
+                var duplicate = scope[attrs.duplicate];
+                if (scope.array.indexOf(Number(viewValue)) !== -1) {
+                    ctrl.$setValidity('duplicate', false);
+                    return undefined;
+                } else {
+                    ctrl.$setValidity('duplicate', true);
+                    return viewValue;
+                }
+            });
+        }
+    };
+});
+
 
 //Sidebar controller to change tab highlight
 marcApp.controller('SideBar', function($scope, $location, upgrades) {
@@ -88,6 +110,15 @@ marcApp.controller('PrisonersController', ['$scope', 'candyPeople', 'industry', 
         output.push(candyPeople[i]);
     }
     $scope.candyPeople = output;
+
+    $scope.verify = function(){
+        if($scope.formvalid){
+            $scope.base.verify();
+        } else {
+            $(verifyPicks).addClass("wiggle")
+            setTimeout(function(){ $(verifyPicks).removeClass("wiggle") }, 1000);
+        }
+    }
     
     
 
