@@ -21,6 +21,7 @@
 			self.makeItem = function(amount) {
 				chai.assert.isNumber(amount, 'string');
 				count += amount * efficiency;
+				self.checkYourSelf();
 			};
 
 			self.useItem = function(cost) {
@@ -95,6 +96,17 @@
 			peppermint: new comodity('Peppermint', 600, 3000),
 			rockCandy: new comodity('Rock-Candy', 1500, 9000)
 		};
+
+		comodities.taffy.achievements.push(new Achievement(comodities.taffy, 1, "First Grains", "Earn your first dollar"))
+		comodities.taffy.achievements.push(new Achievement(comodities.taffy, 1000, "Thousand wishes", "Earn your first thousand dollars"))
+		comodities.taffy.achievements.push(new Achievement(comodities.taffy, 25000, "Twentyfive k", "This could buy a decent car."))
+		comodities.taffy.achievements.push(new Achievement(comodities.taffy, 50000, "50 grand", "Now 50 grand could buy you a lot of favorable company"))
+		comodities.taffy.achievements.push(new Achievement(comodities.taffy, 100000, "100 grand", "Some places, this could buy a house"))
+		comodities.taffy.achievements.push(new Achievement(comodities.taffy, 500000, "Half a million", "500k could buy your momma a nice house"))
+		comodities.taffy.achievements.push(new Achievement(comodities.taffy, 1000000, "First million", "What would you do with a million?"))
+		comodities.taffy.achievements.push(new Achievement(comodities.taffy, 2000000, "Second million", "How long did it take for you to get your second million"))
+		comodities.taffy.achievements.push(new Achievement(comodities.taffy, 5000000, "Five million", "With this much money and good planning, your could live off it forever"))
+		comodities.taffy.achievements.push(new Achievement(comodities.taffy, 1000000000, "One billion", "Congrats, you've made 1 billion"))
 
 		//load all the states
 		for (name in comodities) {

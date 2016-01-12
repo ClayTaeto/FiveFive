@@ -314,7 +314,7 @@
 		};
 
 		//(item, amount, title, description)
-		people.taffy.achievements.push(new Achievement( industry.taffy, 2, "Humble Beginnings", "Make your first Taffy person"));
+		//people.taffy.achievements.push(new Achievement( industry.taffy, 2, "Humble Beginnings", "Make your first Taffy person"));
 		
 		//now load stuff.
 		for (var name in people) {
