@@ -279,7 +279,7 @@
 					return
 				if(!self.pick6 || self.pick6 < 1 || self.base6 > 26)
 					return
-				
+
 				var codes = [self.pick1, self.pick2, self.pick3, self.pick4, self.pick5]
 				var i = codes.length;
 
@@ -298,6 +298,7 @@
 					return;
 
 				self.initialized = true;
+				self.tries = 0;
 				self.saveState();
 
 			}
