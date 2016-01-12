@@ -1,18 +1,18 @@
 <!-- Industry.html -->
 <div ng-if="base.initialized">
 <div class="text-center draw-number"> 
-    <div class="row" style="padding-top:0">
-        <span class="col-md-3"></span>
-        <span class="col-md-1 col-xs-4">{{base.pick1}} </span>
-        <span class="col-md-1 col-xs-4">{{base.pick2}} </span>
-        <span class="col-md-1 col-xs-4">{{base.pick3}} </span>
-        <span class="col-md-1 col-xs-4">{{base.pick4}} </span>
-        <span class="col-md-1 col-xs-4">{{base.pick5}} </span>
-        <span class="col-md-1 col-xs-4">{{base.pick6}} </span>
+    <div class="row top-padding">
+        <span class="col-md-3 hidden-xs"></span>
+        <span class="col-md-1 col-xs-2">{{base.pick1}} </span>
+        <span class="col-md-1 col-xs-2">{{base.pick2}} </span>
+        <span class="col-md-1 col-xs-2">{{base.pick3}} </span>
+        <span class="col-md-1 col-xs-2">{{base.pick4}} </span>
+        <span class="col-md-1 col-xs-2">{{base.pick5}} </span>
+        <span class="col-md-1 col-xs-2">{{base.pick6}} </span>
     </div>
     <div class="row">
-        <span class="col-md-3"></span>
-        <span ng-repeat="n in base.draw track by $index" class="col-md-1 col-xs-4">{{n}} </span>
+        <span class="col-md-3 hidden-xs"></span>
+        <span ng-repeat="n in base.draw track by $index" class="col-md-1 col-xs-2">{{n}} </span>
     </div>
 </div>
 <div>
@@ -85,14 +85,17 @@
           </tr>
     </table>
 
-    <button ng-click="base.stop()"> </button>
-    <div style="height:300px; color: white"> spaaace </div>
+   
 </div>
+
 </div>
+<button class="btn" ng-click="base.stop()"> Pause</button>
+    <button class="btn btn-danger" ng-click="base.reset()"> Reset</button>
+    <div class="hidden-xs" style="height:300px; color: white"> spaaace </div>
 </div>
 
 <div ng-if="!base.initialized">
-    <div  class="page-header" style="margin-top: -15px;"> 
+    <div  class="page-header " style="margin-top: 50px;"> 
         <h1 >Pick your numbers </h1>
         Choose only whole numbers. Hit start to move on.
     </div>

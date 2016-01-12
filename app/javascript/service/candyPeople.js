@@ -152,7 +152,7 @@
 				if(!run)
 					return;
 
-				self.tries += 1;
+				self.tries += 2;
 				window.localStorage.setItem(self.imgName + '-' + "tries", self.tries);
 				self.time.add(100, "ms");
 				self.engine.seed(self.time.valueOf());
@@ -258,6 +258,11 @@
 
 			self.stop = function(){
 				run = !run;
+			}
+
+			self.reset = function(){
+				localStorage.clear();
+				history.go(0);
 			}
 
 			self.verify = function(){

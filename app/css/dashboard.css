@@ -3,13 +3,14 @@
  */
 
 /* Move down content because we have a fixed navbar that is 50px tall */
-.row {
+.top-padding {
   padding-top: 50px;
 }
 
 .draw-number {
   font-size:50px;
   text-decoration: underline;
+  text-align: center
 }
 
 .floor {
@@ -27,8 +28,28 @@ button{
 .adsbygoogle{
   position:fixed;
   bottom:0;
+  max-height:150px;
   min-height: 100px;
   width: 100%;
+}
+
+@media  (max-width: 700px) {  
+  .adsbygoogle{
+    position: initial;
+    padding-top:10px;
+  }
+
+  .draw-number{
+    font-size:2.5em;
+  }
+
+  input {
+        margin-bottom: 5px;
+  }
+
+  .toast-top-right{
+    padding-top: 50px;
+  }
 }
 .ng-invalid {
 /*      border-color: #a94442;
