@@ -122,7 +122,7 @@
 			};
 
 			self.loadState = function() {
-				self.tries = Number(window.localStorage.getItem(self.imgName + '-' + "tries"));
+				run = false;
 
 				self.pick1 = Number(window.localStorage.getItem('number1'));
 				self.pick2 = Number(window.localStorage.getItem('number2'));
@@ -130,7 +130,9 @@
 				self.pick4 = Number(window.localStorage.getItem('number4'));
 				self.pick5 = Number(window.localStorage.getItem('number5'));
 				self.pick6 = Number(window.localStorage.getItem('number6'));
+				self.verify();
 
+				self.tries = Number(window.localStorage.getItem(self.imgName + '-' + "tries"));
 				self.four1 = Number(window.localStorage.getItem('four1'));
 				self.four2 = Number(window.localStorage.getItem('four2'));
 				self.seven1 = Number(window.localStorage.getItem('seven1'));
@@ -141,7 +143,7 @@
 				self.million = Number(window.localStorage.getItem('million'));
 				self.jackpot = Number(window.localStorage.getItem('jackpot'));
 				var state = Number(window.localStorage.getItem(self.imgName + '-' + id));
-				self.verify();
+				run = true;
 			};
 
 			self.produce = function() {
@@ -267,7 +269,7 @@
 				history.go(0);
 			}
 
-			self.verify = function(){
+			self.verify = function(save){
 				
 				if(!self.pick1 || self.base1 < 1 || self.base1 > 59)
 					return
@@ -301,7 +303,8 @@
 
 				self.initialized = true;
 				self.tries = 0;
-				self.saveState();
+				if(save)
+					self.saveState();
 
 			}
 

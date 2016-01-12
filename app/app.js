@@ -118,7 +118,7 @@ marcApp.controller('PrisonersController', ['$scope', 'candyPeople', 'industry', 
             $scope.base.pick3 = $scope.base.picks[2];;
             $scope.base.pick4 = $scope.base.picks[3];;
             $scope.base.pick5 = $scope.base.picks[4];;
-            $scope.base.verify();
+            $scope.base.verify(true);
         } else {
             $(verifyPicks).addClass("wiggle")
             setTimeout(function(){ $(verifyPicks).removeClass("wiggle") }, 1000);
