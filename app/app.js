@@ -111,8 +111,13 @@ marcApp.controller('PrisonersController', ['$scope', 'candyPeople', 'industry', 
     }
     $scope.candyPeople = output;
 
-    $scope.verify = function(){
-        if($scope.formvalid){
+    $scope.verify = function(form){
+        if(form.$valid){
+            $scope.base.pick1 = $scope.base.picks[0];
+            $scope.base.pick2 = $scope.base.picks[1];;
+            $scope.base.pick3 = $scope.base.picks[2];;
+            $scope.base.pick4 = $scope.base.picks[3];;
+            $scope.base.pick5 = $scope.base.picks[4];;
             $scope.base.verify();
         } else {
             $(verifyPicks).addClass("wiggle")

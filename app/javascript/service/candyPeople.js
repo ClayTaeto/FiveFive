@@ -266,6 +266,7 @@
 			}
 
 			self.verify = function(){
+				
 				if(!self.pick1 || self.base1 < 1 || self.base1 > 59)
 					return
 				if(!self.pick2 || self.pick2 < 1 || self.base2 > 59)
@@ -278,7 +279,7 @@
 					return
 				if(!self.pick6 || self.pick6 < 1 || self.base6 > 26)
 					return
-
+				
 				var codes = [self.pick1, self.pick2, self.pick3, self.pick4, self.pick5]
 				var i = codes.length;
 
